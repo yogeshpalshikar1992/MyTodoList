@@ -9,7 +9,12 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 // mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
-await mongoose.connect("mongodb+srv://yogeshpalshikar1992:yDinVZg4ik32qqEu@cluster0.ghc0te6.mongodb.net/todolistDB")
+mongoose.connect("mongodb+srv://yogeshpalshikar1992:yDinVZg4ik32qqEu@cluster0.ghc0te6.mongodb.net/todolistDB").then(function(){
+    console.log("Connected successfully")
+}).catch(function(err){
+    console.log("Connection error")
+});
+
 const itemSchema = {
     name : String
 };
